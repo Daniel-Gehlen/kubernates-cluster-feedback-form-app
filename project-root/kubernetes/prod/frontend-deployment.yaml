@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-prod
+  template:
+    metadata:
+      labels:
+        app: frontend-prod
+    spec:
+      containers:
+      - name: frontend
+        image: your-frontend-image:prod
+        ports:
+        - containerPort: 80
